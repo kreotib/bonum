@@ -495,7 +495,7 @@
                                             </div>
                                         </div>
                                         <div class="section__content">
-                                            <div class="map__frame">
+                                            <div class="map-frame">
 
                                             </div>
                                         </div>
@@ -655,7 +655,7 @@
                                     <div class="section__wrapper section__wrapper--small section__wrapper--padding--bottom--none">
                                         <div class="section__header section__header--row section-header">
                                             <div class="section-header__block">
-                                                <h2 class="section__title title">
+                                                <h2 class="section__title section__title--mobile--bottom--small title">
                                                     Расчет </h2>
                                                 <p class="section__subtitle text text--biggest text--uppercase text--accent">
                                                     Расчет ст<span
@@ -1253,6 +1253,13 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="assets/libs/intl-tel/intlTelInput.min.js"></script>
 <script src="assets/libs/swiper/swiper.js"></script>
+<script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyA7Ah4RZqI0-ssafj9lGvGihZanZMZc9Qs",
+        // Add other bootstrap parameters as needed, using camel case.
+        // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+    });
+</script>
 
 <script src="assets/scripts/index.js"></script>
 </body>

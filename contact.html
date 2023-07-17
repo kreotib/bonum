@@ -166,7 +166,7 @@
             </div>
         </div>
         <section class="section">
-            <div class="section__wrapper section__wrapper--padding--top--none">
+            <div class="section__wrapper section__wrapper--padding--top--none section__wrapper--padding--bottom--small">
                 <div class="container container--big">
                     <div class="section__header section__header--row section-header">
                         <div class="section-header__block">
@@ -175,7 +175,8 @@
                     </div>
                     <div class="section__content section__grid section__grid--gap--big section__grid--column--two">
                         <div class="map">
-                            <div class="map__frame"></div>
+                                <div class="map-frame" data-coord="">
+                                </div>
                         </div>
                         <div class="nav-contact nav-contact--center">
                             <div class="nav-contact__header nav-contact__header--margin--big">
@@ -210,7 +211,7 @@
             </div>
         </section>
         <section class="section contact">
-            <div class="section__wrapper section__wrapper--padding--bottom--big">
+            <div class="section__wrapper section__wrapper--padding--bottom--big section__wrapper--padding--top--small">
                 <div class="container container--big">
                     <div class="contact__wrapper contact-wrapper">
                         <div class="section__header contact__header">
@@ -531,11 +532,34 @@
     </div>
 </div>
 
+<div class="popup popup-map">
+    <div class="popup__wrapper">
+        <div class="popup__content popup__content--big">
+            <div class="popup__close popup-close popup__close--out popup__close--white">
+                <svg class="img img--full">
+                    <use xlink:href="assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+            <div class="popup__map">
+                <div class="map-frame"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="assets/libs/intl-tel/intlTelInput.min.js"></script>
 <script src="assets/libs/swiper/swiper.js"></script>
+<script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyA7Ah4RZqI0-ssafj9lGvGihZanZMZc9Qs",
+        // Add other bootstrap parameters as needed, using camel case.
+        // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+    });
+</script>
 
 <script src="assets/scripts/index.js"></script>
+
 </body>
 </html>

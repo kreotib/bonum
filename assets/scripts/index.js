@@ -67,6 +67,12 @@ const hideAllPopups = () => {
     document.removeEventListener('keyup', checkTargetOrKey);
 };
 
+const updatePopupHeight = (element) =>{
+    const popupContent = element.querySelector('.popup__content');
+    const elementHeight = popupContent.offsetHeight;
+    element.style.setProperty('--element-height', `${elementHeight}px`);
+}
+
 
 // select functions
 const selectInit = () => {
@@ -157,34 +163,48 @@ const toggleFilterBlock = (inputArray, link, limit) => {
     }
 }
 
+async function initMap(element) {
+    const position = { lat: 25.039057, lng:  55.246818};
+
+    //@ts-ignore
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+
+    let map = new Map(element.querySelector(".map-frame"), {
+        zoom: 12,
+        center: position,
+        disableDefaultUI: true,
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
-    if (phoneInputs.length) {
-        phoneInputs.forEach((input) => {
-            var iti = window.intlTelInput(input, {
-                nationalMode: true,
-                initialCountry: 'auto',
-                geoIpLookup: function (callback) {
-                    $.get('https://ipinfo.io', function () {
-                    }, 'jsonp').always(function (resp) {
-                        var countryCode = resp && resp.country ? resp.country : 'us';
-                        callback(countryCode);
-                    });
-                },
-                utilsScript: '/assets/libs/intl-tel/utils.js',
-                preferredCountries: ['ru', 'ua', 'kz'],
-            });
-            var handleChange = function () {
-                var text = iti.isValidNumber() ? iti.getNumber() : '';
-                iti.setNumber(text);
-                input.value = text;
-            };
-            input.addEventListener('mouseleave', handleChange);
-            input.addEventListener('change', handleChange);
-        });
-    }
+    // if (phoneInputs.length) {
+    //     phoneInputs.forEach((input) => {
+    //         var iti = window.intlTelInput(input, {
+    //             nationalMode: true,
+    //             initialCountry: 'auto',
+    //             geoIpLookup: function (callback) {
+    //                 $.get('https://ipinfo.io', function () {
+    //                 }, 'jsonp').always(function (resp) {
+    //                     var countryCode = resp && resp.country ? resp.country : 'us';
+    //                     callback(countryCode);
+    //                 });
+    //             },
+    //             utilsScript: '/assets/libs/intl-tel/utils.js',
+    //             preferredCountries: ['ru', 'ua', 'kz'],
+    //         });
+    //         var handleChange = function () {
+    //             var text = iti.isValidNumber() ? iti.getNumber() : '';
+    //             iti.setNumber(text);
+    //             input.value = text;
+    //         };
+    //         input.addEventListener('mouseleave', handleChange);
+    //         input.addEventListener('change', handleChange);
+    //     });
+    // }
 
     const sliderHero = new Swiper('.hero-slider', {
         loop: true,
@@ -305,12 +325,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const popups = document.querySelectorAll('.popup');
 
     if (popups.length > 0) {
+        popups.forEach(element=>{
+            window.addEventListener('resize',()=> updatePopupHeight(element));
+            updatePopupHeight(element);
+        });
         popupButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                const popupId = button.dataset.popup;
-
+                const popupId = button.dataset.popup
                 showPopup(popupId);
             });
         });
@@ -352,9 +375,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-    //init select
-    selectInit();
 
     // burger settings
     const burger = document.querySelector('.burger');
@@ -524,6 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const newElementContent = newElement.querySelector('.product__content');
                         const button = document.createElement('a');
                         button.classList.add('button','button--yellow','button--base');
+                        button.addEventListener('click', ()=>showPopup('.popup-contact'))
                         button.textContent = 'Отправить заявку';
 
                         newElementContent.append(button);
@@ -533,6 +554,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 });
             }
+        });
+    }
+
+
+    const mapArray = document.querySelectorAll('.map');
+
+    if(mapArray.length){
+        mapArray.forEach(element=>{
+            initMap(element);
+           element.addEventListener('click',(e)=>{
+               e.preventDefault();
+
+               const popupMapFrame = document.querySelector('.popup__map');
+
+               if(!popupMapFrame) return;
+
+               initMap(popupMapFrame);
+               showPopup('.popup-map');
+           });
         });
     }
 });
