@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/libs/intl-tel/intlTelInput.min.css">
+    <link rel="stylesheet" href="assets/libs/swiper/swiper.css">
+
+    <link rel="stylesheet" href="assets/styles/font.css">
+
+    <link rel="stylesheet" href="assets/styles/reset.css">
+    <link rel="stylesheet" href="assets/styles/index.css">
+</head>
+<body>
+
+<div class="page-wrapper page">
+    <header class="page-wrapper__header header">
+        <div class="header__wrapper">
+            <div class="container container--big">
+                <div class="header__row">
+                    <div class="header__burger">
+                        <div class="burger">
+                            <div class="burger__wrapper">
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                                <div class="burger__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__block">
+                        <div class="header__logo logo">
+                            <img src="assets/images/logo.svg" alt="bonum" class="logo__img">
+                        </div>
+                        <div class="header__nav nav">
+                            <ul class="nav__list nav-list">
+                                <li class="nav-list__item"><a href="#" class="nav-list__link">Недвижимость</a></li>
+                                <li class="nav-list__item"><a href="#" class="nav-list__link">Партнерство</a></li>
+                                <li class="nav-list__item"><a href="#" class="nav-list__link">Статьи</a></li>
+                                <li class="nav-list__item"><a href="#" class="nav-list__link">Контакты</a></li>
+                                <li class="nav-list__item"><a href="#" class="nav-list__link">О компании</a></li>
+                            </ul>
+                            <div class="nav__contact nav-contact">
+                                <div class="nav-contact__header">
+                                    <p class="text text--uppercase text--accent text--medium">Контактная информация</p>
+                                    <div class="select custom-select select--language">
+                                        <select class="select__tag" name="" id="">
+                                            <option value="">RU</option>
+                                            <option value="">EN</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <ul class="nav-contact__list">
+                                    <li class="nav-contact__item">
+                                        <a href="#"
+                                           class="nav-contact__link nav-contact__link--map text text--medium">Rasis
+                                            business center 3 floor office 14</a>
+                                    </li>
+                                    <li class="nav-contact__item">
+                                        <a href="mailto:bonumrealty22@gmail.com"
+                                           class="nav-contact__link nav-contact__link--email text text--medium">bonumrealty22@gmail.com</a>
+                                    </li>
+                                    <li class="nav-contact__item">
+                                        <a href="tel:+971 50 636 33 79"
+                                           class="nav-contact__link nav-contact__link--phone text text--medium">+971
+                                            50 636 33 79</a>
+                                    </li>
+                                    <li class="nav-contact__item">
+                                        <a href="tel:+971 50 626 22 39"
+                                           class="nav-contact__link nav-contact__link--phone text text--medium">+971
+                                            50 626 22 39</a>
+                                    </li>
+                                    <li class="nav-contact__item">
+                                        <a href="#" data-popup=".popup-contact"
+                                           class="button button--small button--yellow">Заказать
+                                            звонок</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header__block">
+                        <div class="header__info">
+                            <div class="header__controls">
+                                <div class="select custom-select ">
+                                    <select class="select__tag" name="" id="">
+                                        <option value="">USD</option>
+                                        <option value="">RUB</option>
+                                    </select>
+                                </div>
+                                <div class="select custom-select select--language">
+                                    <select class="select__tag" name="" id="">
+                                        <option value="">RU</option>
+                                        <option value="">EN</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="header__social header-social">
+                                <input type="checkbox" id="header-social" class="header-social__checkbox">
+                                <label class="header-social__link" for="header-social">
+                                    <svg class="img img--full header-social__icon--active">
+                                        <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                    </svg>
+                                    <svg class="img img--full header-social__icon--close">
+                                        <use xlink:href="assets/images/sprite.svg#close"></use>
+                                    </svg>
+                                </label>
+                                <ul class="header-social__list">
+                                    <li class="header-social__item">
+                                        <a href="#" class="header-social__icon">
+                                            <svg class="img img--full">
+                                                <use xlink:href="assets/images/sprite.svg#tg"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="header-social__item">
+                                        <a href="#" class="header-social__icon">
+                                            <svg class="img img--full">
+                                                <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="header-social__item">
+                                        <a href="#" class="header-social__icon header-social__icon--mobile">
+                                            <svg class="img img--full">
+                                                <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header__phone">
+                            <a href="tel:+971 50 636 33 79" class="title title--small title--white">+971 50 636 33
+                                79</a>
+                            <a href="#" data-popup=".popup-contact" class="text text--middle text--medium text--yellow">Заказать
+                                звонок</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="page-wrapper__content">
+        <div class="page-header">
+            <div class="container container--big">
+                <div class="page-header__wrapper">
+                    <nav class="breadcrumbs">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="#" class="breadcrumbs__link">
+                                    Главная
+                                </a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a href="#" class="breadcrumbs__link">
+                                    Партнерство
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <section class="section section--about about">
+            <div class="section__wrapper section__wrapper--mobile--padding--top--none" >
+                <div class="container">
+                    <div class="section__grid section__grid--column--two about__wrapper">
+                        <div class="about__block">
+                            <div class="section__header section-header">
+                                <div class="section-header__block">
+                                    <h2 class="section__title section__title--mobile--bottom--small title">О
+                                        компании</h2>
+                                    <p class="section__subtitle text text--biggest text--uppercase text--accent">О
+                                        к<span class="letter letter--star">о</span>мпании</p>
+                                </div>
+                            </div>
+                            <div class="section__content">
+                                <input type="checkbox" id="about-text" class="about__checkbox">
+                                <div class="about__text">
+                                    <div class="section__text section__text--small">
+                                        <p class="text text--base">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                                            culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <p class="text">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididun.
+                                        </p>
+                                    </div>
+                                </div>
+                                <label for="about-text" class="about__link">Подробнее</label>
+                            </div>
+                        </div>
+                        <div class="about__block about__img">
+                            <img class="img img--full img--cover img--bordered" src="assets/images/about.jpg"
+                                 srcset="assets/images/about.jpg 1x, assets/images/about@2x.jpg 2x">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="section">
+            <div class="section__wrapper section__wrapper--padding--top--small">
+                <div class="container container--big">
+                    <div class="section__header section-header">
+                        <div class="section-header__block">
+                            <h2 class="section__title title">
+                                Лицензии</h2>
+                            <p class="section__subtitle text text--biggest text--uppercase text--accent">Лицензии и д<span class="letter letter--star">о</span>кументы</p>
+                        </div>
+                    </div>
+                    <div class="section__content">
+                        <div class="slider article-slider slider--column--fourth swiper popup-gallery-wrapper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide document-item">
+                                    <img src="assets/images/documents/1.jpg" alt="" class="img img--full img--bordered">
+                                </div>
+                                <div class="swiper-slide document-item">
+                                    <img src="assets/images/documents/1.jpg" alt="" class="img img--full img--bordered">
+                                </div>
+                                <div class="swiper-slide document-item">
+                                    <img src="assets/images/documents/1.jpg" alt="" class="img img--full img--bordered">
+                                </div>
+                                <div class="swiper-slide document-item">
+                                    <img src="assets/images/documents/1.jpg" alt="" class="img img--full img--bordered">
+                                </div>
+                                <div class="swiper-slide document-item">
+                                    <img src="assets/images/documents/1.jpg" alt="" class="img img--full img--bordered">
+                                </div>
+                            </div>
+                            <div class="slider__control">
+                                <div class="slider__button slider__button--prev slider-button">
+                                    <svg class="slider-button__arrow">
+                                        <use xlink:href="assets/images/sprite.svg#arrow"></use>
+                                    </svg>
+                                </div>
+                                <div class="slider__navigation"></div>
+                                <div class="slider__button slider__button--next slider-button">
+                                    <svg class="slider-button__arrow">
+                                        <use xlink:href="assets/images/sprite.svg#arrow"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-wrapper__footer footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__row footer__row--start">
+                    <div class="footer__block">
+                        <div class="footer__logo logo">
+                            <img src="assets/images/logo.svg" alt="" class="logo__img">
+                        </div>
+                        <div class="footer-social">
+                            <ul class="footer-social__list">
+                                <li class="footer-social__item">
+                                    <a href="#"
+                                       class="footer-social__link footer-social__link--map text text--middle text--medium text--white">Rasis
+                                        business center 3 floor office 14</a>
+                                </li>
+                                <li class="footer-social__item">
+                                    <a href="mailto:bonumrealty22@gmail.com"
+                                       class="footer-social__link footer-social__link--mail text text--middle text--medium text--white">bonumrealty22@gmail.com</a>
+                                </li>
+                                <li class="footer-social__item">
+                                    <a href="tel:+971 50 636 33 79"
+                                       class="footer-social__link footer-social__link--phone text text--middle text--medium text--white">+971
+                                        50 636 33 79</a>
+                                </li>
+                                <li class="footer-social__item">
+                                    <a href="tel:+971 50 626 22 39"
+                                       class="footer-social__link footer-social__link--phone text text--middle text--medium text--white">+971
+                                        50 626 22 39</a>
+                                </li>
+                                <li class="footer-social__item">
+                                    <a href="#" data-popup=".popup-contact"
+                                       class="footer-social__link footer-social__button text text--middle text--accent text--medium">Заказать
+                                        звонок</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__nav footer-nav">
+                        <div class="footer-nav__block footer-toggle">
+                            <input id="information" type="checkbox" class="footer-toggle__checkbox">
+                            <label for="information"
+                                   class="footer-toggle__link text text--big text--white text--semibold">
+                                Информация
+                            </label>
+                            <div class="footer-toggle__content">
+                                <ul class="footer-toggle__block footer__list footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Недвижимость</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Партнерство</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Статьи</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Контакты</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">О
+                                            компании</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-nav__block footer-toggle">
+                            <input id="type" type="checkbox" class="footer-toggle__checkbox">
+                            <label for="type" class="footer-toggle__link text text--big text--white text--semibold">
+                                Тип недвижимости
+                            </label>
+                            <div class="footer-toggle__content">
+                                <ul class="footer-toggle__block footer__list footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Апартаменты</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Вилла</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Дом</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Квартира</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-nav__block footer-toggle">
+                            <input id="kind" type="checkbox" class="footer-toggle__checkbox">
+                            <label for="kind" class="footer-toggle__link text text--big text--white text--semibold">
+                                Вид недвижимости
+                            </label>
+                            <div class="footer-toggle__content">
+                                <ul class="footer-toggle__block footer__list footer-list">
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Популярные
+                                            проекты</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Популярные
+                                            районы</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Инвестиционная
+                                            недвижимость</a>
+                                    </li>
+                                    <li class="footer-list__item">
+                                        <a href="#" class="footer-list__link text text--base text--white text--opacity">Для
+                                            семьи</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer__social">
+                        <ul class="footer-social__list footer-social__list--row">
+                            <li class="footer-social__item">
+                                <a href="#" class="footer-social__icon">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#tg"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li class="footer-social__item">
+                                <a href="#" class="footer-social__icon">
+                                    <svg>
+                                        <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__row">
+                    <div class="footer__block">
+                        <p class="text text--white text--base text--opacity">© 2023 Агентство недвижимости Bonum </p>
+                    </div>
+                    <div class="footer__block">
+                        <a href="#" class="text text--white text--base text--opacity">Условия конфиденциальности </a>
+                    </div>
+                    <div class="footer__block">
+                        <a href="#" class="text text--white text--base text--opacity">Студия Lite:Web</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<a href="#" class="button button--top button-top">
+    <img src="assets/images/icons/to-top.svg" class="img img--full" alt="">
+</a>
+
+<div class="popup popup-contact">
+    <div class="popup__wrapper">
+        <div class="popup__content popup__content--contact">
+            <div class="popup__close popup-close">
+                <svg class="img img--full">
+                    <use xlink:href="assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+            <form action="#" class="form popup__form">
+                <div class="form__wrapper">
+                    <div class="form__header">
+                        <p class="text text--biggest text--yellow text--center text--uppercase text--spacing">заказать
+                            зв<span class="letter letter--star">о</span>нок</p>
+                        <p class="text text--base text--center">Укажите свои контакты и менеджер свяжется с вами, чтобы
+                            уточнить удобное время просмотра.</p>
+                    </div>
+                    <div class="form__block">
+                        <div class="form__input form-input">
+                            <input type="text" name="name" class="form-input__item form-input__item--transparent"
+                                   placeholder="Имя" required>
+                        </div>
+                    </div>
+                    <div class="form__block">
+                        <div class="form__input form-input">
+                            <input type="tel" name="phone"
+                                   class="form-input__item  form-input__item--transparent"
+                                   placeholder="" required>
+                        </div>
+                    </div>
+                    <div class="form__block form__block--gap--base form-block">
+                        <div class="form-block__item">
+                            <p class="text text--base">
+                                Предпочтительный способ связи:
+                            </p>
+                        </div>
+                        <div class="form__social form-social form__social--start">
+                            <div class="form-social__item ">
+                                <label class="radio">
+                                    <input type="radio" name="social" value="telegram" class="radio__input" required>
+                                    <svg class="radio__icon radio__icon--dark">
+                                        <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                    </svg>
+                                    <span class="radio__checkmark radio__checkmark--dark"></span>
+                                </label>
+                            </div>
+                            <div class="form-social__item">
+                                <label class="radio">
+                                    <input type="radio" name="social" value="telegram" class="radio__input">
+                                    <svg class="radio__icon radio__icon--dark">
+                                        <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                    </svg>
+                                    <span class="radio__checkmark radio__checkmark--dark"></span>
+                                </label>
+                            </div>
+                            <div class="form-social__item">
+                                <label class="radio">
+                                    <input type="radio" name="social" value="telegram" class="radio__input">
+                                    <svg class="radio__icon radio__icon--dark">
+                                        <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                    </svg>
+                                    <span class="radio__checkmark radio__checkmark--dark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__block">
+                        <div class="form__input form-input">
+                            <input type="submit" class="button button--base button--yellow"
+                                   placeholder="Имя">
+                            <div class="form__text form__text--small">
+                                <p class="text text--small text--opacity text--center">
+                                    Нажимая на кнопку вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-partner">
+    <div class="popup__wrapper">
+        <div class="popup__content popup__content--contact">
+            <div class="popup__close popup-close">
+                <svg class="img img--full">
+                    <use xlink:href="assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+            <form action="#" class="form popup__form">
+                <div class="form__wrapper">
+                    <div class="form__header">
+                        <p class="text text--biggest text--yellow text--center text--uppercase text--spacing">стать
+                            партнер<span class="letter letter--star">о</span>м</p>
+                        <p class="text text--base text--center">Укажите свои контакты и менеджер свяжется с вами, чтобы
+                            уточнить удобное время просмотра.</p>
+                    </div>
+                    <div class="form__block">
+                        <div class="form__input form-input">
+                            <input type="text" name="name" class="form-input__item form-input__item--transparent"
+                                   placeholder="Имя" required>
+                        </div>
+                    </div>
+                    <div class="form__block">
+                        <div class="form__input form-input">
+                            <input type="tel" name="phone"
+                                   class="form-input__item  form-input__item--transparent"
+                                   placeholder="" required>
+                        </div>
+                    </div>
+                    <div class="form__block form__block--gap--base form-block">
+                        <div class="form-block__item">
+                            <p class="text text--base">
+                                Предпочтительный способ связи:
+                            </p>
+                        </div>
+                        <div class="form__social form-social form__social--start">
+                            <div class="form-social__item ">
+                                <label class="radio">
+                                    <input type="radio" name="social" value="telegram" class="radio__input" required>
+                                    <svg class="radio__icon radio__icon--dark">
+                                        <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                    </svg>
+                                    <span class="radio__checkmark radio__checkmark--dark"></span>
+                                </label>
+                            </div>
+                            <div class="form-social__item">
+                                <label class="radio">
+                                    <input type="radio" name="social" value="telegram" class="radio__input">
+                                    <svg class="radio__icon radio__icon--dark">
+                                        <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                    </svg>
+                                    <span class="radio__checkmark radio__checkmark--dark"></span>
+                                </label>
+                            </div>
+                            <div class="form-social__item">
+                                <label class="radio">
+                                    <input type="radio" name="social" value="telegram" class="radio__input">
+                                    <svg class="radio__icon radio__icon--dark">
+                                        <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                    </svg>
+                                    <span class="radio__checkmark radio__checkmark--dark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form__block">
+                        <div class="form__input form-input">
+                            <input type="submit" class="button button--base button--yellow"
+                                   placeholder="Имя">
+                            <div class="form__text form__text--small">
+                                <p class="text text--small text--opacity text--center">
+                                    Нажимая на кнопку вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-gallery">
+    <div class="popup__wrapper">
+        <div class="popup__content popup__content--gallery">
+            <div class="popup__close popup__close--white popup__close--out popup-close">
+                <svg class="img img--full">
+                    <use xlink:href="assets/images/sprite.svg#close"></use>
+                </svg>
+            </div>
+            <div class="swiper popup-gallery__slider">
+                <div class="swiper-wrapper popup-gallery__content">
+                    <div class="swiper-slide">
+                        <img src="assets/images/documents/1.jpg" alt="" class="img img--full">
+                    </div>
+                </div>
+                <div class="slider__control">
+                    <div class="slider__button slider__button--prev slider-button">
+                        <svg class="slider-button__arrow slider-button__arrow--white">
+                            <use xlink:href="assets/images/sprite.svg#arrow"></use>
+                        </svg>
+                    </div>
+                    <div class="slider__navigation slider__navigation--white"></div>
+                    <div class="slider__button slider__button--next slider-button">
+                        <svg class="slider-button__arrow slider-button__arrow--white">
+                            <use xlink:href="assets/images/sprite.svg#arrow"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src="assets/libs/intl-tel/intlTelInput.min.js"></script>
+<script src="assets/libs/swiper/swiper.js"></script>
+
+<script src="assets/scripts/index.js"></script>
+</body>
+</html>
