@@ -51,6 +51,11 @@ body {
   }
 
   &-header {
+    &__sort{
+      @media screen and (max-width: 991px) {
+        display: none;
+      }
+    }
     &__wrapper {
       display: flex;
       align-items: center;
@@ -2977,6 +2982,34 @@ body {
     }
   }
 
+  &--sort{
+    .select{
+      &__label{
+        background: transparent;
+        color:var(--main-color);
+        font-weight: 500;
+        &::after {
+          content: '';
+          width: 16px;
+          height: 16px;
+          flex-shrink: 0;
+          display: block;
+          background: url("/assets/images/icons/arrow-down-yellow.svg") center center/contain no-repeat;
+
+          transition: .3s transform;
+        }
+
+        &--active {
+          background-color: #ECE8DC;
+
+          &::after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+
   &--language {
     .select__item, .select__label {
       &::before {
@@ -3271,6 +3304,13 @@ body {
       }
     }
   }
+  &_redraw{
+    &_zone{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
   &_list{
     display: flex;
     flex-direction: column;
@@ -3393,6 +3433,14 @@ body {
     &::before{
       opacity: 1;
     }
+  }
+}
+
+.sort{
+  &__wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 }
 

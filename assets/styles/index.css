@@ -38,6 +38,11 @@ body {
 .page-wrapper.no-scroll {
   overflow: hidden;
 }
+@media screen and (max-width: 991px) {
+  .page-header__sort {
+    display: none;
+  }
+}
 .page-header__wrapper {
   display: flex;
   align-items: center;
@@ -2384,6 +2389,26 @@ body {
   justify-content: space-between;
   padding: 10px 15px;
 }
+.select--sort .select__label {
+  background: transparent;
+  color: var(--main-color);
+  font-weight: 500;
+}
+.select--sort .select__label::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  display: block;
+  background: url("/assets/images/icons/arrow-down-yellow.svg") center center/contain no-repeat;
+  transition: 0.3s transform;
+}
+.select--sort .select__label--active {
+  background-color: #ECE8DC;
+}
+.select--sort .select__label--active::after {
+  transform: rotate(180deg);
+}
 .select--language .select__item::before, .select--language .select__label::before {
   content: "";
   width: 15px;
@@ -2635,6 +2660,11 @@ body {
   font-size: 16px;
   font-weight: 600;
 }
+.woof_redraw_zone {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .woof_list {
   display: flex;
   flex-direction: column;
@@ -2726,6 +2756,12 @@ body {
 }
 .icheckbox_square-blue.checked::before {
   opacity: 1;
+}
+
+.sort__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 @media screen and (max-width: 991px) {

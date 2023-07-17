@@ -67,7 +67,7 @@ const hideAllPopups = () => {
     document.removeEventListener('keyup', checkTargetOrKey);
 };
 
-const updatePopupHeight = (element) =>{
+const updatePopupHeight = (element) => {
     const popupContent = element.querySelector('.popup__content');
     const elementHeight = popupContent.offsetHeight;
     element.style.setProperty('--element-height', `${elementHeight}px`);
@@ -163,17 +163,23 @@ const toggleFilterBlock = (inputArray, link, limit) => {
     }
 }
 
-async function initMap(element) {
-    const position = { lat: 25.039057, lng:  55.246818};
+async function initMap(element, elementCoord) {
+    const coord = elementCoord.split(',');
+    const position = {lat: +coord[0], lng: +coord[1]};
 
     //@ts-ignore
-    const { Map } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+    const {Map} = await google.maps.importLibrary("maps");
+    const {Marker} = await google.maps.importLibrary("marker");
 
-    let map = new Map(element.querySelector(".map-frame"), {
+    let map = new Map(element, {
         zoom: 12,
         center: position,
         disableDefaultUI: true,
+    });
+
+    new google.maps.Marker({
+        position: position,
+        map: map,
     });
 }
 
@@ -325,8 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const popups = document.querySelectorAll('.popup');
 
     if (popups.length > 0) {
-        popups.forEach(element=>{
-            window.addEventListener('resize',()=> updatePopupHeight(element));
+        popups.forEach(element => {
+            window.addEventListener('resize', () => updatePopupHeight(element));
             updatePopupHeight(element);
         });
         popupButtons.forEach(button => {
@@ -358,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 contactText = element.querySelector('.contact__text'),
                 contactWrapper = element.querySelector('.contact-wrapper');
 
-            if(!contactWrapper) return false;
+            if (!contactWrapper) return false;
 
             const contactWrapperHeight = contactWrapper.getBoundingClientRect().height;
 
@@ -374,6 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    selectInit();
 
 
     // burger settings
@@ -529,11 +537,11 @@ document.addEventListener('DOMContentLoaded', () => {
         plansWrapperArray.forEach(plansWrapper => {
             const plansItemArray = plansWrapper.querySelectorAll('.product');
 
-            if(plansItemArray.length){
+            if (plansItemArray.length) {
                 const plansItemPopup = document.querySelector('.popup__content--plans');
-                if(!plansItemPopup) return false;
-                plansItemArray.forEach(element=>{
-                    element.addEventListener('click',(e)=>{
+                if (!plansItemPopup) return false;
+                plansItemArray.forEach(element => {
+                    element.addEventListener('click', (e) => {
                         e.preventDefault();
                         plansItemPopup.innerHTML = '';
 
@@ -543,8 +551,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         const newElementContent = newElement.querySelector('.product__content');
                         const button = document.createElement('a');
-                        button.classList.add('button','button--yellow','button--base');
-                        button.addEventListener('click', ()=>showPopup('.popup-contact'))
+                        button.classList.add('button', 'button--yellow', 'button--base');
+                        button.addEventListener('click', () => showPopup('.popup-contact'))
                         button.textContent = 'Отправить заявку';
 
                         newElementContent.append(button);
@@ -560,19 +568,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const mapArray = document.querySelectorAll('.map');
 
-    if(mapArray.length){
-        mapArray.forEach(element=>{
-            initMap(element);
-           element.addEventListener('click',(e)=>{
-               e.preventDefault();
+    if (mapArray.length) {
+        mapArray.forEach(element => {
+            const mapFrame = element.querySelector('.map-frame');
+            initMap(mapFrame, mapFrame.dataset.coord);
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
 
-               const popupMapFrame = document.querySelector('.popup__map');
+                const popupMapFrame = document.querySelector('.popup__map');
 
-               if(!popupMapFrame) return;
+                if (!popupMapFrame) return;
 
-               initMap(popupMapFrame);
-               showPopup('.popup-map');
-           });
+                initMap(popupMapFrame, mapFrame.dataset.coord);
+                showPopup('.popup-map');
+            });
         });
     }
 });
