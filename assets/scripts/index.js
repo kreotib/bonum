@@ -70,7 +70,9 @@ const hideAllPopups = () => {
 const updatePopupHeight = (element) => {
     const popupContent = element.querySelector('.popup__content');
     const elementHeight = popupContent.offsetHeight;
-    element.style.setProperty('--element-height', `${elementHeight}px`);
+    const windowHeight = window.innerHeight;
+
+    windowHeight <= elementHeight ? popupContent.closest('.popup__wrapper').classList.add('popup__wrapper--start') : null;
 }
 
 
@@ -613,68 +615,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const filter = document.querySelector('.filter');
 
     if (filter) {
-        const limitInput = 5;
-        const filterBlockArray = filter.querySelectorAll('.filter-block');
+        // filter button name
+        const filterResetButton = document.querySelector('.woof_reset_search_form');
+        const filterStartButton = document.querySelector('.woof_submit_search_form');
 
-        //filter reset settings
-
-        const filterReset = filter.querySelectorAll('.filter-reset');
-        if (filterReset.length) {
-            filterReset.forEach(element => {
-                element.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    filter.reset();
-                });
-            })
-        }
-
-        //filter all settings
-
-        const filterAllCheckbox = filter.querySelectorAll('[value="all"]');
-
-        if (filterAllCheckbox.length) {
-            filterAllCheckbox.forEach(checkbox => {
-                const filterBlock = checkbox.closest('.filter-block'),
-                    filterBlockInput = filterBlock.querySelectorAll('[type="checkbox"]');
-                checkbox.addEventListener('change', () => {
-                    filterBlockInput.forEach(input => {
-                        input.checked = checkbox.checked;
-                    });
-                });
-                filterBlockInput.forEach(element => {
-                    element.addEventListener('change', () => {
-                        if (element.checked === false) {
-                            checkbox.checked = false;
-                        }
-                    });
-                })
-            });
-        }
-
-        // filter block settings
-
-        filterBlockArray.forEach(filterBlock => {
-            const filterBlockContent = filterBlock.querySelector('.filter-block__content'),
-                filterBlockInputArray = filterBlockContent.querySelectorAll('.filter-block__item');
-
-            // add link to the block
-            if (filterBlockInputArray.length > limitInput) {
-                const filterBlockFooter = document.createElement('div')
-                filterBlockFooter.classList.add('.filter-block__footer');
-
-                const link = document.createElement('a');
-                link.href = '#';
-                link.classList.add('text', 'text--middle', 'text--yellow', 'text--medium', 'filter-block__link', 'filter-block__link--active');
-
-                link.addEventListener('click', () => toggleFilterBlock(filterBlockInputArray, link, limitInput));
-
-                filterBlockFooter.append(link);
-                filterBlock.append(filterBlockFooter)
-
-                toggleFilterBlock(filterBlockInputArray, link, limitInput);
-            }
-
-        });
+        if(filterResetButton) filterResetButton.textContent = 'Очистить';
+        if(filterStartButton) filterStartButton.textContent = 'Применить';
 
         //filter burger settings
         const filterBurger = document.querySelector('.filter-burger');
