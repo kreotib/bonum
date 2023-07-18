@@ -162,23 +162,6 @@
                             </li>
                         </ul>
                     </nav>
-                    <div class="page-header__sort">
-                        <div class="sort">
-                            <div class="sort__wrapper">
-                                <p class="text text--small">Сортировать:</p>
-                                <div class="sort__content">
-                                    <div class="select custom-select select--sort">
-                                        <select class="select__tag" name="" id="">
-                                            <option value="">По актуальности</option>
-                                            <option value="">По цене</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
                 </div>
             </div>
         </div>
@@ -187,21 +170,7 @@
             <div class="container container--big">
                 <div class="catalog__grid">
                     <div class="catalog__filter catalog-filter">
-                        <div class="catalog-filter__header">
-                            <div class="filter-burger">
-                                <div class="filter-burger__wrapper">
-                                    <div class="filter-burger__item"></div>
-                                    <div class="filter-burger__item"></div>
-                                    <div class="filter-burger__item"></div>
-                                </div>
-                            </div>
-                            <div class="select custom-select select--filter catalog-filter__select">
-                                <select class="select__tag" name="" id="">
-                                    <option value="">По актуальности</option>
-                                    <option value="">По цене</option>
-                                </select>
-                            </div>
-                        </div>
+
                         <form action="#" class="catalog-filter__wrapper filter">
                             <div class="woof  " data-shortcode="woof " data-redirect="" data-autosubmit="0"
                                  data-ajax-redraw="0">
@@ -914,13 +883,13 @@
                             </div>
                         </form>
                     </div>
-                    <div class="catalog__header">
+                    <div class="catalog__header catalog-header">
                         <div class="section__header section__header--column section-header">
                             <div class="section-header__block">
                                 <p class="section__subtitle text text--biggest text--uppercase text--accent">
                                     Недвижим<span class="letter letter--star">о</span>сть</p>
                             </div>
-                            <div class="section-header__block">
+                            <div class="section-header__block section-header__block--row">
                                 <ul class="tag-list tag-list--wrap">
                                     <li>
                                         <p class="text text--middle"> Частые запросы:</p>
@@ -943,6 +912,28 @@
                                             у моря </a>
                                     </li>
                                 </ul>
+                                <div class="catalog-header__filter">
+                                    <div class="filter-burger">
+                                        <div class="filter-burger__wrapper">
+                                            <div class="filter-burger__item"></div>
+                                            <div class="filter-burger__item"></div>
+                                            <div class="filter-burger__item"></div>
+                                        </div>
+                                    </div>
+                                    <div class="catalog-filter__select sort">
+                                        <div class="sort__wrapper">
+                                            <div class="sort__title">
+                                                <p class="text text--small">Сортировать:</p>
+                                            </div>
+                                            <div class="sort__select select custom-select select--filter">
+                                                <select class="select__tag" name="" id="">
+                                                    <option value="">По актуальности</option>
+                                                    <option value="">По цене</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

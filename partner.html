@@ -439,8 +439,8 @@
 </div>
 
 <div class="popup popup-partner">
-    <div class="popup__wrapper">
-        <div class="popup__content popup__content--contact">
+    <div class="popup__wrapper contact">
+        <div class="popup__content popup__content--contact contact-wrapper">
             <div class="popup__close popup-close">
                 <svg class="img img--full">
                     <use xlink:href="assets/images/sprite.svg#close"></use>
@@ -449,71 +449,73 @@
             <form action="#" class="form popup__form">
                 <div class="form__wrapper">
                     <div class="form__header">
-                        <p class="text text--biggest text--yellow text--center text--uppercase text--spacing">стать
+                        <p class="contact__title text text--biggest text--yellow text--center text--uppercase text--spacing">стать
                             партнер<span class="letter letter--star">о</span>м</p>
-                        <p class="text text--base text--center">Укажите свои контакты и менеджер свяжется с вами, чтобы
+                        <p class="contact__text text text--base text--center">Укажите свои контакты и менеджер свяжется с вами, чтобы
                             уточнить удобное время просмотра.</p>
                     </div>
-                    <div class="form__block">
-                        <div class="form__input form-input">
-                            <input type="text" name="name" class="form-input__item form-input__item--transparent"
-                                   placeholder="Имя" required>
-                        </div>
-                    </div>
-                    <div class="form__block">
-                        <div class="form__input form-input">
-                            <input type="tel" name="phone"
-                                   class="form-input__item  form-input__item--transparent"
-                                   placeholder="" required>
-                        </div>
-                    </div>
-                    <div class="form__block form__block--gap--base form-block">
-                        <div class="form-block__item">
-                            <p class="text text--base">
-                                Предпочтительный способ связи:
-                            </p>
-                        </div>
-                        <div class="form__social form-social form__social--start">
-                            <div class="form-social__item ">
-                                <label class="radio">
-                                    <input type="radio" name="social" value="telegram" class="radio__input" required>
-                                    <svg class="radio__icon radio__icon--dark">
-                                        <use xlink:href="assets/images/sprite.svg#wa"></use>
-                                    </svg>
-                                    <span class="radio__checkmark radio__checkmark--dark"></span>
-                                </label>
-                            </div>
-                            <div class="form-social__item">
-                                <label class="radio">
-                                    <input type="radio" name="social" value="telegram" class="radio__input">
-                                    <svg class="radio__icon radio__icon--dark">
-                                        <use xlink:href="assets/images/sprite.svg#telegram"></use>
-                                    </svg>
-                                    <span class="radio__checkmark radio__checkmark--dark"></span>
-                                </label>
-                            </div>
-                            <div class="form-social__item">
-                                <label class="radio">
-                                    <input type="radio" name="social" value="telegram" class="radio__input">
-                                    <svg class="radio__icon radio__icon--dark">
-                                        <use xlink:href="assets/images/sprite.svg#phone"></use>
-                                    </svg>
-                                    <span class="radio__checkmark radio__checkmark--dark"></span>
-                                </label>
+                    <div class="form__content contact__content">
+                        <div class="form__block">
+                            <div class="form__input form-input">
+                                <input type="text" name="name" class="form-input__item form-input__item--transparent"
+                                       placeholder="Имя" required>
                             </div>
                         </div>
-                    </div>
-                    <div class="form__block">
-                        <div class="form__input form-input">
-                            <input type="submit" class="button button--base button--yellow"
-                                   placeholder="Имя">
-                            <div class="form__text form__text--small">
-                                <p class="text text--small text--opacity text--center">
-                                    Нажимая на кнопку вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
+                        <div class="form__block">
+                            <div class="form__input form-input">
+                                <input type="tel" name="phone"
+                                       class="form-input__item  form-input__item--transparent"
+                                       placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="form__block form__block--gap--base form-block">
+                            <div class="form-block__item">
+                                <p class="text text--base">
+                                    Предпочтительный способ связи:
                                 </p>
                             </div>
+                            <div class="form__social form-social form__social--start">
+                                <div class="form-social__item ">
+                                    <label class="radio">
+                                        <input type="radio" name="social" value="telegram" class="radio__input" required>
+                                        <svg class="radio__icon radio__icon--dark">
+                                            <use xlink:href="assets/images/sprite.svg#wa"></use>
+                                        </svg>
+                                        <span class="radio__checkmark radio__checkmark--dark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-social__item">
+                                    <label class="radio">
+                                        <input type="radio" name="social" value="telegram" class="radio__input">
+                                        <svg class="radio__icon radio__icon--dark">
+                                            <use xlink:href="assets/images/sprite.svg#telegram"></use>
+                                        </svg>
+                                        <span class="radio__checkmark radio__checkmark--dark"></span>
+                                    </label>
+                                </div>
+                                <div class="form-social__item">
+                                    <label class="radio">
+                                        <input type="radio" name="social" value="telegram" class="radio__input">
+                                        <svg class="radio__icon radio__icon--dark">
+                                            <use xlink:href="assets/images/sprite.svg#phone"></use>
+                                        </svg>
+                                        <span class="radio__checkmark radio__checkmark--dark"></span>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
+                        <div class="form__block">
+                            <div class="form__input form-input">
+                                <input type="submit" class="button button--base button--yellow"
+                                       placeholder="Имя">
+                                <div class="form__text form__text--small">
+                                    <p class="text text--small text--opacity text--center">
+                                        Нажимая на кнопку вы соглашаетесь с <a href="#">политикой конфиденциальности</a>
+                                    </p>
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </form>

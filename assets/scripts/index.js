@@ -88,7 +88,6 @@ const selectInit = () => {
                 selectItemList = document.createElement('div'),
                 selectLabelSpan = document.createElement('span');
 
-
             selectWrapper.classList.add('select__wrapper');
 
             selectLabel.classList.add('select__label');
@@ -102,7 +101,6 @@ const selectInit = () => {
             selectWrapper.append(selectLabel);
             element.append(selectWrapper);
 
-
             selectOption.forEach((element, index) => {
                 const selectItem = document.createElement('div');
 
@@ -114,11 +112,16 @@ const selectInit = () => {
                         selectItemOptions = selectItemTag.querySelectorAll('option');
 
                     selectItemOptions.forEach((element, index) => {
-                        if (element.textContent == selectItem.textContent) {
+                        if (element.textContent === selectItem.textContent) {
                             selectItemTag.selectedIndex = index;
                             selectLabelSpan.textContent = element.textContent;
+
+                            // Trigger change event when selectIndex is changed
+                            const event = new Event('change');
+                            selectItemTag.dispatchEvent(event);
                         }
                     });
+
                     selectLabel.click();
                 });
                 selectItemList.append(selectItem);
@@ -134,6 +137,13 @@ const selectInit = () => {
                 selectItemList.classList.toggle('select__content--hidden');
                 selectLabel.classList.toggle('select__label--active');
             });
+
+            selectTag.addEventListener('change', () => {
+                const selectItemOptions = selectTag.options,
+                    selectedItem = selectItemOptions[selectTag.selectedIndex];
+
+                selectLabelSpan.textContent = selectedItem.textContent;
+            })
         });
 
         document.addEventListener('click', closeAllSelect);
@@ -163,6 +173,8 @@ const toggleFilterBlock = (inputArray, link, limit) => {
     }
 }
 
+// map Init function
+
 async function initMap(element, elementCoord) {
     const coord = elementCoord.split(',');
     const position = {lat: +coord[0], lng: +coord[1]};
@@ -171,15 +183,213 @@ async function initMap(element, elementCoord) {
     const {Map} = await google.maps.importLibrary("maps");
     const {Marker} = await google.maps.importLibrary("marker");
 
+    // custom marker
+    const markerIcon = {
+        url: '/assets/images/icons/pin-white.svg',
+        size: new google.maps.Size(50, 50),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(25, 50)
+    };
+
     let map = new Map(element, {
         zoom: 12,
         center: position,
         disableDefaultUI: true,
+        zoomControl: true,
+        scrollwheel: false,
+        // custom styles for map
+        styles: [
+            {
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#212121"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.icon",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#757575"
+                    }
+                ]
+            },
+            {
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#212121"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#757575"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.country",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#9e9e9e"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.land_parcel",
+                "stylers": [
+                    {
+                        "visibility": "off"
+                    }
+                ]
+            },
+            {
+                "featureType": "administrative.locality",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#bdbdbd"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#757575"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#181818"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#616161"
+                    }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                    {
+                        "color": "#1b1b1b"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "geometry.fill",
+                "stylers": [
+                    {
+                        "color": "#2c2c2c"
+                    }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#8a8a8a"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#373737"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#3c3c3c"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.highway.controlled_access",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#4e4e4e"
+                    }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#616161"
+                    }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#757575"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "geometry",
+                "stylers": [
+                    {
+                        "color": "#000000"
+                    }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                    {
+                        "color": "#3d3d3d"
+                    }
+                ]
+            }
+        ]
     });
 
     new google.maps.Marker({
         position: position,
         map: map,
+        icon: markerIcon,
     });
 }
 
@@ -187,30 +397,30 @@ async function initMap(element, elementCoord) {
 document.addEventListener('DOMContentLoaded', () => {
     const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
-    // if (phoneInputs.length) {
-    //     phoneInputs.forEach((input) => {
-    //         var iti = window.intlTelInput(input, {
-    //             nationalMode: true,
-    //             initialCountry: 'auto',
-    //             geoIpLookup: function (callback) {
-    //                 $.get('https://ipinfo.io', function () {
-    //                 }, 'jsonp').always(function (resp) {
-    //                     var countryCode = resp && resp.country ? resp.country : 'us';
-    //                     callback(countryCode);
-    //                 });
-    //             },
-    //             utilsScript: '/assets/libs/intl-tel/utils.js',
-    //             preferredCountries: ['ru', 'ua', 'kz'],
-    //         });
-    //         var handleChange = function () {
-    //             var text = iti.isValidNumber() ? iti.getNumber() : '';
-    //             iti.setNumber(text);
-    //             input.value = text;
-    //         };
-    //         input.addEventListener('mouseleave', handleChange);
-    //         input.addEventListener('change', handleChange);
-    //     });
-    // }
+    if (phoneInputs.length) {
+        phoneInputs.forEach((input) => {
+            var iti = window.intlTelInput(input, {
+                nationalMode: true,
+                initialCountry: 'auto',
+                geoIpLookup: function (callback) {
+                    $.get('https://ipinfo.io', function () {
+                    }, 'jsonp').always(function (resp) {
+                        var countryCode = resp && resp.country ? resp.country : 'us';
+                        callback(countryCode);
+                    });
+                },
+                utilsScript: '/assets/libs/intl-tel/utils.js',
+                preferredCountries: ['ru', 'ua', 'kz'],
+            });
+            var handleChange = function () {
+                var text = iti.isValidNumber() ? iti.getNumber() : '';
+                iti.setNumber(text);
+                input.value = text;
+            };
+            input.addEventListener('mouseleave', handleChange);
+            input.addEventListener('change', handleChange);
+        });
+    }
 
     const sliderHero = new Swiper('.hero-slider', {
         loop: true,
@@ -570,17 +780,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mapArray.length) {
         mapArray.forEach(element => {
-            const mapFrame = element.querySelector('.map-frame');
+            const mapFrame = element.querySelector('.map-frame'),
+                mapCoord = mapFrame.dataset.coord;
+
+            if (!mapCoord) return
+
             initMap(mapFrame, mapFrame.dataset.coord);
-            element.addEventListener('click', (e) => {
-                e.preventDefault();
+        });
+    }
 
-                const popupMapFrame = document.querySelector('.popup__map');
+    const languageChangeArray = document.querySelectorAll('.language-change');
 
-                if (!popupMapFrame) return;
+    if (languageChangeArray.length) {
+        languageChangeArray.forEach(select => {
+            const url = window.location.href;
+            const selectOption = [...select.options];
 
-                initMap(popupMapFrame, mapFrame.dataset.coord);
-                showPopup('.popup-map');
+            selectOption.forEach((option, optionIndex) => {
+                const optionUrl = option.dataset.url;
+                if (optionUrl === url) {
+                    select.selectedIndex = optionIndex;
+                    select.dispatchEvent(new Event('change')); // Trigger change event
+                }
+            });
+
+            select.addEventListener('change', (e) => {
+                const selectedOption = selectOption[select.selectedIndex],
+                selectedUrl = selectedOption.dataset.url;
+
+                if(selectedUrl !== url){
+                    window.location.href = selectedUrl;
+                }
             });
         });
     }
